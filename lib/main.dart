@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
+import 'saved_suggestions.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -59,29 +61,7 @@ class RandomWordsState extends State<RandomWords> {
   void _pushSaved() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (context) {
-          final Iterable<ListTile> tiles = _saved.map(
-              (WordPair pair) {
-                return ListTile(
-                  title: Text(
-                    pair.asPascalCase,
-                    style: _biggerFont,
-                  )
-                );
-              }
-          );
-          final List<Widget> divided = ListTile.divideTiles(
-            tiles: tiles,
-            context: context
-          ).toList();
-
-          return Scaffold(
-            appBar: AppBar(
-              title: Text('Saved Suggestions'),
-            ),
-            body: ListView(children: divided),
-          );
-        }
+        builder: (context) => SavedSuggestions(saved: _saved)
       )
     );
   }
