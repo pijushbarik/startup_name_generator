@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Startup Name Generator',
       home: RandomWords(),
       theme: ThemeData(
-        primaryColor: Colors.white
+        primaryColor: Colors.red
       ),
     );
   }
